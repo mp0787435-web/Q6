@@ -59,8 +59,6 @@ class HashTable:
             print(f"Index {i}: {self.table[i]}")
         print()
 
-
-# Main menu-driven interface
 hash_table = HashTable(10)
 
 while True:
