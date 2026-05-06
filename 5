@@ -1,104 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 70%;
+    margin: 50px auto;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+h2 {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #5ca65c;
+    color: white;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Status badges */
+.status {
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.completed {
+    background-color: #4CAF50;
+}
+
+.progress {
+    background-color: #f0ad4e;
+}
+
+.pending {
+    background-color: #d9534f;
+}
+_____________________________________________________________________________
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Task Progress</title>
-<style>
-body {
-font-family: Arial, sans-serif;
-background: #ﬀﬀﬀ;
-}
-/* Main box */
-.box {
-width: 650px;
-margin: 50px auto;
-border: 2px solid #3f7f3f;
-}
-/* Title */
-.title {
-background: #4f8f4f;
-color: white;
-text-align: center;
-font-size: 24px;
-font-weight: bold;
-padding: 10px;
-border-bottom: 4px solid #dcdcdc;
-}
-/* Table */
-table {
-width: 100%;
-border-collapse: collapse;
-}
-/* Header */
-th {
-background: #5a9e5a;
-color: white;
-padding: 12px;
-font-size: 18px;
-border-right: 1px solid #4a8a4a;
-}
-th:last-child {
-border-right: none;
-}
-/* Cells */
-td {
-padding: 14px;
-font-size: 16px;
-text-align: center;
-border-top: 1px solid #cfcfcf;
-border-right: 1px solid #cfcfcf;
-td:last-child {
-border-right: none;
-/* Alternate row */
-tr:nth-child(3) {
-background: #e6e6e6;
-}
-}
-}
-/* Status labels */
-span {
-padding: 6px 18px;
-border-radius: 10px;
-color: white;
-font-weight: bold;
-}
-/* Colors */
-.completed {
-background: #4CAF50;
-}
-.progress {
-background: #e0a800;
-}
-.pending {
-background: #d32f2f;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>Task Progress</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="box">
-<div class="title">Task Progress</div>
-<table>
-<tr>
-<th>Task</th>
-<th>Status</th>
-<th>Deadline</th>
-</tr>
-<tr>
-<td>Design Mockup</td>
-<td><span class="completed">Completed</span></td>
-<td>August 15</td>
-</tr>
-<tr>
-<td>Write Documentation</td>
-<td><span class="progress">In Progress</span></td>
-<td>August 20</td>
-</tr>
-<tr>
-<td>Testing Phase</td>
-<td><span class="pending">Pending</span></td>
-<td>August 25</td>
-</tr>
-</table>
+
+<div class="container">
+    <h2>Task Progress</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Deadline</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Design Mockup</td>
+                <td><span class="status completed">Completed</span></td>
+                <td>August 15</td>
+            </tr>
+            <tr>
+                <td>Write Documentation</td>
+                <td><span class="status progress">In Progress</span></td>
+                <td>August 20</td>
+            </tr>
+            <tr>
+                <td>Testing Phase</td>
+                <td><span class="status pending">Pending</span></td>
+                <td>August 25</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
 </body>
 </html>
