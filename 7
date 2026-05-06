@@ -1,78 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Form Validation</title>
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-rel="stylesheet">
-<script>
-function validateForm() {
-let name = document.getElementById("name").value.trim();
-let email = document.getElementById("email").value.trim();
-let password = document.getElementById("password").value.trim();
-let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-// Empty field validation
-if (name === "" || email === "" || password === "") {
-document.getElementById("msg").innerHTML = "All fields are required!";
-return false;
-}
-// Email validation
-if (!email.match(emailPattern)) {
-document.getElementById("msg").innerHTML = "Enter valid email!";
-return false;
-}
-// Password length validation
-if (password.length < 6) {
-document.getElementById("msg").innerHTML = "Password must be at least 6
-characters!";
-return false;
-}
-alert("Form submitted successfully!");
-return true;
-}
-</script>
-<style>
-body {
-background-color: #f2f2f2;
-}
-.form-box {
-background: white;
-padding: 25px;
-border-radius: 10px;
-box-shadow: 0px 0px 10px gray;
-}
-.error {
-color: red;
-text-align: center;
-}
-</style>
+  <title>Form Validation</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      width: 300px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0 10px 0;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+
+  <script>
+    function validateForm() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var msg = document.getElementById("msg");
+
+      msg.innerHTML = "";
+
+      // Empty fields check
+      if (name == "" || email == "" || password == "") {
+        msg.innerHTML = "All fields are required";
+        return false;
+      }
+
+      // Email validation
+      var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(pattern)) {
+        msg.innerHTML = "Invalid email format";
+        return false;
+      }
+
+      // Password validation
+      if (password.length < 6) {
+        msg.innerHTML = "Password must be at least 6 characters long";
+        return false;
+      }
+
+      alert("Form submitted successfully");
+      return true;
+    }
+  </script>
 </head>
 <body>
-<div class="container mt-5">
-<div class="row justify-content-center">
-<div class="col-md-5">
-<div class="form-box">
-<h3 class="text-center mb-3">Registration Form</h3>
-<form onsubmit="return validateForm()">
-<div class="mb-3">
-<label>Name</label>
-<input type="text" id="name" class="form-control">
+
+<div class="container">
+  <h2>Form Validation</h2>
+
+  <form onsubmit="return validateForm()">
+    Name:
+    <input type="text" id="name">
+
+    Email:
+    <input type="text" id="email">
+
+    Password:
+    <input type="password" id="password">
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <p id="msg" class="error"></p>
 </div>
-<div class="mb-3">
-<label>Email</label>
-<input type="text" id="email" class="form-control">
-</div>
-<div class="mb-3">
-<label>Password</label>
-<input type="password" id="password" class="form-control">
-</div>
-<p id="msg" class="error"></p>
-<button type="submit" class="btn btn-primary w-100">Submit</button>
-</form>
-</div>
-</div>
-</div>
-</div>
+
 </body>
 </html>
